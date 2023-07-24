@@ -57,4 +57,16 @@ public class TaskManagerService implements TaskManagerPort {
 		deleteTaskPort.delete(original);
 	}
 
+	@Override
+	public Task get(Long id) throws Exception {
+		return getTaskPort.getTaskById(id);
+	}
+
+	@Override
+	public Task complete(Long id) throws Exception {
+		Task original = getTaskPort.getTaskById(id);
+		original.setCompleted(true);
+		return updateTaskPort.update(original);
+	}
+
 }

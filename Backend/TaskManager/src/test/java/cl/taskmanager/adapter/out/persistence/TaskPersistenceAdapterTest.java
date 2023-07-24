@@ -29,8 +29,8 @@ public class TaskPersistenceAdapterTest {
     void getTasks_ShouldReturnListOfTasks() {
         // Arrange
         List<TaskEntity> taskEntities = new ArrayList<>();
-        taskEntities.add(new TaskEntity(1L, "Task 1", true));
-        taskEntities.add(new TaskEntity(2L, "Task 2", false));
+        taskEntities.add(new TaskEntity(1L, "Task 1", true, null));
+        taskEntities.add(new TaskEntity(2L, "Task 2", false, null));
 
         when(taskRepository.findAll()).thenReturn(taskEntities);
 
@@ -48,7 +48,7 @@ public class TaskPersistenceAdapterTest {
     @Test
     void getTaskById_ExistingId_ShouldReturnTask() {
         // Arrange
-        TaskEntity taskEntity = new TaskEntity(1L, "Test Task", true);
+        TaskEntity taskEntity = new TaskEntity(1L, "Test Task", true, null);
         when(taskRepository.getReferenceById(1L)).thenReturn(taskEntity);
 
         // Act
@@ -86,7 +86,7 @@ public class TaskPersistenceAdapterTest {
     void update_ShouldUpdateTask() {
         // Arrange
         Task task = new Task(1L, "Test Task", true);
-        TaskEntity updatedTaskEntity = new TaskEntity(1L, "Updated Task", false);
+        TaskEntity updatedTaskEntity = new TaskEntity(1L, "Updated Task", false, null );
 
         when(taskRepository.save(any(TaskEntity.class))).thenReturn(updatedTaskEntity);
 
@@ -103,7 +103,7 @@ public class TaskPersistenceAdapterTest {
     void create_ShouldCreateTask() {
         // Arrange
         Task task = new Task(null, "New Task", false);
-        TaskEntity savedTaskEntity = new TaskEntity(1L, "New Task", false);
+        TaskEntity savedTaskEntity = new TaskEntity(1L, "New Task", false, null);
 
         when(taskRepository.save(any(TaskEntity.class))).thenReturn(savedTaskEntity);
 

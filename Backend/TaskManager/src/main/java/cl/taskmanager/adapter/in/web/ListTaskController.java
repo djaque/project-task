@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
@@ -23,6 +25,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import jakarta.servlet.http.HttpServletResponse;
 
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
 @RequestMapping(path = "/api", produces = "application/json")
 public class ListTaskController {
@@ -80,16 +83,34 @@ public class ListTaskController {
 			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "ID Not Found", exc);
 		}
 	}
-	
-	@Operation(summary = "Delete task by id")
+
+	@Operation(summary = "Complete task by id")
 	@ApiResponses(value = { 
-	  @ApiResponse(responseCode = "200", description = "Task edited", 
+	  @ApiResponse(responseCode = "200", description = "Task completed", 
 	    content = { @Content(mediaType = "application/json", schema = @Schema(implementation = Task.class)) }),
 	  @ApiResponse(responseCode = "404", description = "Task not found", content = @Content) 
 	 }
 	)
+	
+	@PutMapping(path = "/task/{id}/complete")
+	public Task completeTask(@PathVariable  Long id) {
+		try {
+			return this.taskManagerPort.complete(id);
+		} catch (Exception exc) {
+			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "ID Not Found", exc);
+		}
+	}
+
+	
+	@Operation(summary = "Delete task by id")
+	@ApiResponses(value = { 
+	  @ApiResponse(responseCode = "200", description = "Task edited", 
+	    content = { @Content(mediaType = "application/json") }),
+	  @ApiResponse(responseCode = "404", description = "Task not found", content = @Content) 
+	 }
+	)
 	@DeleteMapping(path = "task/{id}")
-	public void deleteTask(@PathVariable Long id, HttpServletResponse response) {
+	public void deleteTask(@PathVariable Long id) {
 		Task task = new Task();
 		task.setId(id);
 		try {
@@ -99,5 +120,5 @@ public class ListTaskController {
 		}
 	
 	}
-	
+
 }

@@ -10,5 +10,6 @@ public interface TaskManagerPort {
 	Task create(Task task);
 	Task update(Task task) throws Exception;
 	void delete(Task task) throws Exception;
-	
+	Task get(Long id) throws Exception;
+	Task complete(Long id) throws Exception;	
 }

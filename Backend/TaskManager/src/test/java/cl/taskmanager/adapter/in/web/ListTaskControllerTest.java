@@ -2,6 +2,8 @@ package cl.taskmanager.adapter.in.web;
 
 import cl.taskmanager.application.port.in.TaskManagerPort;
 import cl.taskmanager.domain.Task;
+import jakarta.servlet.http.HttpServletResponse;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -38,7 +40,6 @@ public class ListTaskControllerTest {
 
 		// Act
 		ArrayList<Task> result = listTaskController.getTasks();
-
 		// Assert
 		assertEquals(tasks, result);
 	}
@@ -94,7 +95,7 @@ public class ListTaskControllerTest {
 		Long taskId = 1L;
 
 		// Act
-		listTaskController.deleteTask(taskId, null);
+		listTaskController.deleteTask(taskId);
 
 		// Assert
 		verify(taskManagerPort, times(1)).delete(any(Task.class));
