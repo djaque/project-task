@@ -65,4 +65,12 @@ npm start
 
 Los comandos anteriores instalaran las dependencias indicadas en el package.json e iniciará el proyecto en modo desarrollo local.
 Esta app no cuenta con test de momento. Pero se planea desarrollar los mismos a futuro para incrementar el aprendizaje.
+
+## Contribuciones
+
+Si deseas contribuir a este proyecto, por favor realiza un fork y crea una pull request. Agradezco mucho las contribuciones de la comunidad.
+
+## Información de contacto
+
+Si tienes alguna pregunta o problema, no dudes en contactarnos a través de [djaque@gmail.com.com](mailto:djaque@gmail.com) o crea un issue en el repositorio.
  
