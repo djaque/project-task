@@ -36,6 +36,7 @@ Dicho projecto es una app de tipo CRUD que se implementó usando clean arquitect
 ```bash
 cd Backend/TaskManager
 
+mvn clean install
 mvn spring-boot:run
 ``` 
 
