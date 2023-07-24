@@ -10,8 +10,8 @@ Antes de iniciar el proyecto se necesita contar con una base de datos Mysql a la
 
 Clona el repositorio:
 ```bash
-git clone https://github.com/djaque/project-task/tree/main
-cd <nombre_del_directorio>
+git clone git@github.com:djaque/project-task.git
+cd project-task
 ```
 ## Mysql
 Instrucciones para levantar la base de datos MySQL con Docker
