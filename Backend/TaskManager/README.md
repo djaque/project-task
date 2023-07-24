@@ -1,15 +1,13 @@
-# Nombre de tu aplicación
+# TaskManager API
 
 ## Requisitos previos
 Antes de construir la aplicación, asegúrate de tener instalado lo siguiente:
-- Java JDK 17
-- Maven (versión requerida)
+- Java Open JDK version: 20.0.1
+- Maven 3.9.3
 
 ## Instrucciones de construcción
 
-1. Clona el repositorio:
-git clone <URL_del_repositorio>
-cd <nombre_del_directorio>
+1. Clona el repositorio
 
 2. Compila el proyecto con Maven:
 
