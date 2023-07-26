@@ -7,123 +7,197 @@
 	},
 	"item": [
 		{
-			"name": "GetAllTask",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{server}}/api/task",
-					"host": [
-						"{{server}}"
-					],
-					"path": [
-						"api",
-						"task"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "PublishTask",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\"subject\":\"Agregar otras cosas a la lista de tareas\"}",
-					"options": {
-						"raw": {
-							"language": "json"
+			"name": "TaskSingle",
+			"item": [
+				{
+					"name": "GetAllTask",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/api/task",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"api",
+								"task"
+							]
 						}
-					}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "{{server}}/api/task",
-					"host": [
-						"{{server}}"
-					],
-					"path": [
-						"api",
-						"task"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "PublishTask Error empty",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\"subject\":\"\"}",
-					"options": {
-						"raw": {
-							"language": "json"
+				{
+					"name": "PublishTask",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"subject\":\"Tarea 9 sin board\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/api/task",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"api",
+								"task"
+							]
 						}
-					}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "{{server}}/api/task",
-					"host": [
-						"{{server}}"
-					],
-					"path": [
-						"api",
-						"task"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "UpdateTask",
-			"request": {
-				"method": "PUT",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\"subject\":\"nuevo texto para la tarea editada\", \"completed\": 1}",
-					"options": {
-						"raw": {
-							"language": "json"
+				{
+					"name": "PublishTask Error empty",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"subject\":\"\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/api/task",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"api",
+								"task"
+							]
 						}
-					}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "{{server}}/api/task/1",
-					"host": [
-						"{{server}}"
-					],
-					"path": [
-						"api",
-						"task",
-						"1"
-					]
+				{
+					"name": "UpdateTask",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"subject\":\"Tarea 4 en board 1\", \"completed\": 1, \"boardId\":1}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/api/task/152",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"api",
+								"task",
+								"152"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "RemoveTask",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/api/task/123",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"api",
+								"task",
+								"123"
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
 		},
 		{
-			"name": "RemoveTask",
-			"request": {
-				"method": "DELETE",
-				"header": [],
-				"url": {
-					"raw": "{{server}}/api/task/123",
-					"host": [
-						"{{server}}"
-					],
-					"path": [
-						"api",
-						"task",
-						"123"
-					]
+			"name": "Board",
+			"item": [
+				{
+					"name": "GetAllBoards",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/api/board",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"api",
+								"board"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetBoardByID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/api/board/1",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"api",
+								"board",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreateBoard",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"subject\": \"Default\", \"description\": \"For the first task creaded\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/api/board",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"api",
+								"board"
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
 		}
 	]
 }
