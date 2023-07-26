@@ -13,6 +13,7 @@ import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
 @Entity
 @Data
 @Table(name = "board")
@@ -21,10 +22,10 @@ import lombok.NoArgsConstructor;
 public class BoardEntity {
 
     @Id
-	@GeneratedValue
+    @GeneratedValue
     private Long id;
-	
-	private String subject; 
+
+    private String subject;
     private String description;
 
     private Date createdAt;
@@ -45,15 +46,15 @@ public class BoardEntity {
     }
 
     @PrePersist
-	public void preSave() {
-		if (this.createdAt == null) {
-			this.createdAt = new Date();
-		}
-		this.updatedAt = new Date();
-	}
+    public void preSave() {
+        if (this.createdAt == null) {
+            this.createdAt = new Date();
+        }
+        this.updatedAt = new Date();
+    }
 
     public void addTask(TaskEntity taskEntity) {
-        if (this.tasks == null){
+        if (this.tasks == null) {
             this.tasks = new ArrayList<TaskEntity>();
         }
         this.tasks.add(taskEntity);

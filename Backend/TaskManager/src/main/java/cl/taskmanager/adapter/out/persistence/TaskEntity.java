@@ -14,7 +14,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-
 @Entity
 @Data
 @Table(name = "task")
@@ -25,18 +24,18 @@ public class TaskEntity {
 	@Id
 	@GeneratedValue
 	private Long id;
-	
+
 	private String subject;
-	
+
 	private Boolean completed;
 
 	@Column(name = "created_at", nullable = false, updatable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
 	private Date createdAt;
 	@Column(name = "updated_at", nullable = true, updatable = true, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
 	private Date updatedAt;
-	
+
 	@ManyToOne
-    @JoinColumn(name="board_id", nullable=true)
+	@JoinColumn(name = "board_id", nullable = true)
 	BoardEntity board;
 
 	public TaskEntity(String subject) {
