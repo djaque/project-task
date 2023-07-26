@@ -6,6 +6,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -62,7 +63,7 @@ public class BoardController {
             @ApiResponse(responseCode = "404", description = "Board not found", content = @Content),
     })
     @GetMapping(path = "/board/{id}")
-    public Board getBoard(Long id) {
+    public Board getBoard(@PathVariable Long id) {
         try {
             return this.boardManagerPort.get(id);
         } catch (Exception exc) {
