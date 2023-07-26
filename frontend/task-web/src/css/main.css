@@ -26,20 +26,20 @@ body {
 }
 
 .App {
-  margin-top: 3rem;
+  margin-top: 1rem;
   display: flex;
   flex-direction: column;
 }
 
-.App h1 {
-  display: inline;
-  text-align: center;
+.App .header-main{
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin-bottom: 1rem;
-  color: #8f70ec;
 }
 
 .addTodos {
-  margin-top: 3rem;
+  margin: 1rem;
   display: flex;
   justify-content: center;
 }
@@ -98,6 +98,11 @@ body {
 
 .displaytodos .buttons button:not(:last-child) {
   margin-right: 1rem;
+}
+
+.displaytodos .listing{
+  max-height: 500px;
+  overflow-y: scroll;
 }
 
 .displaytodos ul {
