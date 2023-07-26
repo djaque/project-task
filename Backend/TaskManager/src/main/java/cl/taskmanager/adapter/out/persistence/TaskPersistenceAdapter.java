@@ -2,11 +2,11 @@ package cl.taskmanager.adapter.out.persistence;
 
 import java.util.ArrayList;
 
-import cl.taskmanager.application.port.out.CreateTaskPort;
-import cl.taskmanager.application.port.out.DeleteTaskPort;
-import cl.taskmanager.application.port.out.GetTaskPort;
-import cl.taskmanager.application.port.out.ListTaskPort;
-import cl.taskmanager.application.port.out.UpdateTaskPort;
+import cl.taskmanager.application.port.out.task.CreateTaskPort;
+import cl.taskmanager.application.port.out.task.DeleteTaskPort;
+import cl.taskmanager.application.port.out.task.GetTaskPort;
+import cl.taskmanager.application.port.out.task.ListTaskPort;
+import cl.taskmanager.application.port.out.task.UpdateTaskPort;
 import cl.taskmanager.common.PersistenceAdapter;
 import cl.taskmanager.domain.Task;
 
@@ -41,7 +41,6 @@ public class TaskPersistenceAdapter implements CreateTaskPort, UpdateTaskPort, D
 	@Override
 	public void delete(Task task) {
 		taskRepository.deleteById(task.getId());
-
 	}
 
 	@Override

@@ -3,11 +3,11 @@ package cl.taskmanager.application.service;
 import java.util.ArrayList;
 
 import cl.taskmanager.application.port.in.TaskManagerPort;
-import cl.taskmanager.application.port.out.CreateTaskPort;
-import cl.taskmanager.application.port.out.ListTaskPort;
-import cl.taskmanager.application.port.out.UpdateTaskPort;
-import cl.taskmanager.application.port.out.DeleteTaskPort;
-import cl.taskmanager.application.port.out.GetTaskPort;
+import cl.taskmanager.application.port.out.task.CreateTaskPort;
+import cl.taskmanager.application.port.out.task.DeleteTaskPort;
+import cl.taskmanager.application.port.out.task.GetTaskPort;
+import cl.taskmanager.application.port.out.task.ListTaskPort;
+import cl.taskmanager.application.port.out.task.UpdateTaskPort;
 import cl.taskmanager.common.UseCase;
 import cl.taskmanager.domain.Task;
 import jakarta.transaction.Transactional;

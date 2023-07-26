@@ -1,10 +1,10 @@
 package cl.taskmanager.application.service;
 
-import cl.taskmanager.application.port.out.CreateTaskPort;
-import cl.taskmanager.application.port.out.DeleteTaskPort;
-import cl.taskmanager.application.port.out.GetTaskPort;
-import cl.taskmanager.application.port.out.ListTaskPort;
-import cl.taskmanager.application.port.out.UpdateTaskPort;
+import cl.taskmanager.application.port.out.task.CreateTaskPort;
+import cl.taskmanager.application.port.out.task.DeleteTaskPort;
+import cl.taskmanager.application.port.out.task.GetTaskPort;
+import cl.taskmanager.application.port.out.task.ListTaskPort;
+import cl.taskmanager.application.port.out.task.UpdateTaskPort;
 import cl.taskmanager.domain.Task;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

@@ -1,4 +1,4 @@
-package cl.taskmanager.application.port.out;
+package cl.taskmanager.application.port.out.task;
 
 import cl.taskmanager.domain.Task;
 
