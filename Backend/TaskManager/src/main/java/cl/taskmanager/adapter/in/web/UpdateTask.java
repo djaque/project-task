@@ -12,4 +12,6 @@ public class UpdateTask {
 	private String subject;
 	
 	private Boolean completed;
+	private Long boardId;
+
 }

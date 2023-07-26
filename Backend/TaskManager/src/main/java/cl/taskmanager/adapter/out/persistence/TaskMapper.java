@@ -21,6 +21,13 @@ public class TaskMapper {
 		taskEntity.setCompleted(task.getCompleted());
 		taskEntity.setCreatedAt(task.getCreatedAt());
 		taskEntity.setUpdatedAt(task.getUpdatedAt());
+		if (task.getBoard() != null) {
+			taskEntity.setBoard(
+				BoardMapper.domainToEntity(
+					task.getBoard()
+				)
+			);
+		}
 		return taskEntity;
 	}
 }

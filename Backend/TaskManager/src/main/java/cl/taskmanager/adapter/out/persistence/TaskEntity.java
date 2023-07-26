@@ -36,7 +36,7 @@ public class TaskEntity {
 	private Date updatedAt;
 	
 	@ManyToOne
-    @JoinColumn(name="board_id", nullable=false)
+    @JoinColumn(name="board_id", nullable=true)
 	BoardEntity board;
 
 	public TaskEntity(String subject) {

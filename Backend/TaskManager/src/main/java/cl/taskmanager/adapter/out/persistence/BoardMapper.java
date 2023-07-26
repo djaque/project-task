@@ -12,6 +12,9 @@ public class BoardMapper {
         board.setDescription(boardEntity.getDescription());
         board.setCreatedAt(boardEntity.getCreatedAt());
         board.setUpdatedAt(boardEntity.getUpdatedAt());
+        if (boardEntity.getTasks() == null) {
+            return board;
+        }
         for (TaskEntity taskEntity : boardEntity.getTasks()) {
             board.addTask(TaskMapper.entityToDomain(taskEntity));
         }
@@ -25,6 +28,9 @@ public class BoardMapper {
         boardEntity.setDescription(board.getDescription());
         boardEntity.setCreatedAt(board.getCreatedAt());
         boardEntity.setUpdatedAt(board.getUpdatedAt());
+        if (board.getTasks() == null) {
+            return boardEntity;
+        }
         for (Task task : board.getTasks()) {
             boardEntity.addTask(TaskMapper.domainToEntity(task));
         }

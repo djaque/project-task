@@ -45,7 +45,11 @@ public class TaskPersistenceAdapter implements CreateTaskPort, UpdateTaskPort, D
 
 	@Override
 	public Task update(Task task) {
-		return TaskMapper.entityToDomain(taskRepository.save(TaskMapper.domainToEntity(task)));
+		return TaskMapper.entityToDomain(
+			taskRepository.save(
+				TaskMapper.domainToEntity(task)
+			)
+		);
 	}
 
 	@Override
