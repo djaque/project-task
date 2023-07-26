@@ -1,4 +1,4 @@
-import React, {  useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { connect, useDispatch } from "react-redux";
 import {
   addTodos,
@@ -9,7 +9,12 @@ import {
   updateTodos,
 } from "../redux/reducer";
 import TodoItem from "./TodoItem";
-import { fetchTasks, updateTask, deleteTask, completeTask } from "../redux/actions";
+import {
+  fetchTasks,
+  updateTask,
+  deleteTask,
+  completeTask,
+} from "../redux/actions";
 
 const mapStateToProps = (state) => {
   return {
@@ -32,33 +37,27 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-const DisplayTodos = (props ) => {
+const DisplayTodos = (props) => {
   const dispatch = useDispatch();
   const [loaded, setLoaded] = useState(false);
   useEffect(() => {
     if (loaded) return;
     dispatch(fetchTasks(false));
     setLoaded(true);
-  }, [setLoaded, loaded, dispatch] ); 
+  }, [setLoaded, loaded, dispatch]);
 
   const [sort, setSort] = useState("all");
   return (
     <div className="displaytodos">
       <div className="buttons">
-        <button onClick={() => setSort("active")}>
-          Pendientes
-        </button>
+        <button onClick={() => setSort("active")}>Pendientes</button>
 
-        <button onClick={() => setSort("completed")}>
-          Completadas
-        </button>
+        <button onClick={() => setSort("completed")}>Completadas</button>
 
-        <button onClick={() => setSort("all")}>
-          Todas
-        </button>
+        <button onClick={() => setSort("all")}>Todas</button>
       </div>
-      <ul>
-
+      <div className="listing">
+        <ul>
           {props.todos.length > 0 && sort === "active"
             ? props.todos.map((item) => {
                 return (
@@ -70,7 +69,6 @@ const DisplayTodos = (props ) => {
                       updateTodo={props.updateTask}
                       completeTodo={props.completeTask}
                     />
-
                   )
                 );
               })
@@ -86,7 +84,6 @@ const DisplayTodos = (props ) => {
                       removeTodo={props.deleteTask}
                       updateTodo={props.updateTask}
                       completeTodo={props.completeTask}
-                      
                     />
                   )
                 );
@@ -100,14 +97,14 @@ const DisplayTodos = (props ) => {
                     key={item.id}
                     item={item}
                     removeTodo={props.deleteTask}
-                      updateTodo={props.updateTask}
-                      completeTodo={props.completeTask}
+                    updateTodo={props.updateTask}
+                    completeTodo={props.completeTask}
                   />
                 );
               })
             : null}
-
-      </ul>
+        </ul>
+      </div>
     </div>
   );
 };

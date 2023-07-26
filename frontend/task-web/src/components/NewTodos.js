@@ -40,6 +40,7 @@ const NewTodos = (props) => {
         onChange={(e) => handleChange(e)}
         className="todo-input"
         value={todo}
+        placeholder="Ingrese una tarea"
         maxLength={30}
         minLength={2}
       />

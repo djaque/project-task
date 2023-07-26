@@ -2,14 +2,14 @@ import "./css/main.css";
 
 import NewTodos from "./components/NewTodos";
 import DisplayTodos from "./components/DisplayTodos";
-
+import Header from "./components/Header";
 function App() {
   
   return (
     <div className="App">
-      <h1>Tareas</h1>
-      <DisplayTodos />
+      <Header />
       <NewTodos />
+      <DisplayTodos />
     </div>
   );
 }
