@@ -2,7 +2,6 @@ package cl.taskmanager.adapter.in.web;
 
 import cl.taskmanager.application.port.in.TaskManagerPort;
 import cl.taskmanager.domain.Task;
-import jakarta.servlet.http.HttpServletResponse;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

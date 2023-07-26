@@ -9,6 +9,8 @@ public class TaskMapper {
 		task.setId(taskEntity.getId());
 		task.setSubject(taskEntity.getSubject());
 		task.setCompleted(taskEntity.getCompleted());
+		task.setCreatedAt(taskEntity.getCreatedAt());
+		task.setUpdatedAt(taskEntity.getUpdatedAt());
 		return task;
 	}
 
@@ -17,6 +19,15 @@ public class TaskMapper {
 		taskEntity.setId(task.getId());
 		taskEntity.setSubject(task.getSubject());
 		taskEntity.setCompleted(task.getCompleted());
+		taskEntity.setCreatedAt(task.getCreatedAt());
+		taskEntity.setUpdatedAt(task.getUpdatedAt());
+		if (task.getBoard() != null) {
+			taskEntity.setBoard(
+				BoardMapper.domainToEntity(
+					task.getBoard()
+				)
+			);
+		}
 		return taskEntity;
 	}
 }
